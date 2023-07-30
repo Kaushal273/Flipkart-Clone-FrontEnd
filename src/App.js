@@ -10,7 +10,7 @@ function App() {
     <div >
       <Header />
       <Box style = {{marginTop:54}}>
-      <Home />
+        <Home />
       </Box>
     </div>
   );
