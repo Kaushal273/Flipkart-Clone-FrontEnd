@@ -1,6 +1,6 @@
 
 import { imageURL } from "../../constants/data";
-import {  Grid,styled } from "@mui/material";
+import { Grid, styled } from "@mui/material";
 
 
 const Wrapper = styled(Grid)`
@@ -9,16 +9,19 @@ const Wrapper = styled(Grid)`
 `;
 
 const MidSection = () => {
-    return(
-        <Wrapper lg={12} sm={12} md={12} xs={12} container>
-            {
-                imageURL.map(image => (
-                    <Grid item lg={4} sm={12} md={4} xs={12}>
-                    <img src={image} alt="image" style={{width: '100%'}} />
-                    </Grid>
-                ))
-            }
-        </Wrapper>
+
+    return (
+        <>
+            <Wrapper lg={12} sm={12} md={12} xs={12} container>
+                {
+                    imageURL.map(image => (
+                        <Grid item lg={4} sm={12} md={4} xs={12}>
+                            <img src={image} alt="image" style={{ width: '100%' }} />
+                        </Grid>
+                    ))
+                }
+            </Wrapper>
+        </>
     )
 }
 
