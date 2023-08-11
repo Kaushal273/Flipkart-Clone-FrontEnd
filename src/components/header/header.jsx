@@ -1,4 +1,4 @@
-import { AppBar, Toolbar,Box ,Typography,styled, IconButton, Drawer, List, ListItem, ListItemButton } from "@mui/material";
+import { AppBar, Toolbar, Box, Typography, styled, IconButton, Drawer, List, ListItem, ListItemButton } from "@mui/material";
 import Search from "./Search";
 import CustomButtons from "./CustomButtons";
 import { Link } from "react-router-dom";
@@ -23,7 +23,7 @@ const SubHeading = styled(Typography)`
 `
 
 const PLusImage = styled('img')({
-    width:10,
+    width: 10,
     height: 10,
     marginLeft: 4
 })
@@ -41,16 +41,16 @@ const MenuButton = styled(IconButton)(({ theme }) => ({
         display: 'block'
     }
 }))
-    
+
 
 
 
 
 const Header = () => {
-    const logoURL= 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
-    const subURL= 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
+    const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
+    const subURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
 
-    const[open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
         setOpen(true);
@@ -59,39 +59,37 @@ const Header = () => {
         setOpen(false);
     }
 
-    const list = () =>{
-        <Box style={{ width: 200}} onClick={handleClose}>
-            <List>
-                <ListItem button>
-                    <CustomButtons />
-                </ListItem>
-            </List>
-        </Box>
-    }
+   
 
     return (
         <StyledHeader>
-            <Toolbar style={{minHeight: 55}}>
-                <MenuButton style={{color :'inherit'}} onClick={handleOpen}>
+            <Toolbar style={{ minHeight: 55 }}>
+                <MenuButton style={{ color: 'inherit' }} onClick={handleOpen}>
                     <MenuIcon />
                 </MenuButton>
 
                 <Drawer open={open} onClose={handleClose} >
-                    { list() }
-                </Drawer>
-                 <Component to={`/`}>
-                    <img src={logoURL} alt="logo" style={{  width: 75 }} />
-                    <Box style={{display: "flex"}}>
-                        <SubHeading>Explore&nbsp;
-                            <Box component="span" style={{color: '#FFE500'}}>Plus</Box>
-                            </SubHeading>
-                            <PLusImage src={subURL} alt="sub-logo"/>
+                    <Box style={{ width: 200 }} onClick={handleClose}>
+                        <List>
+                            <ListItem button>
+                                <CustomButtons />
+                            </ListItem>
+                        </List>
                     </Box>
-                 </Component>
-                 <Search/>
-                 <CustomButtonWrapper>
+                </Drawer>
+                <Component to={`/`}>
+                    <img src={logoURL} alt="logo" style={{ width: 75 }} />
+                    <Box style={{ display: "flex" }}>
+                        <SubHeading>Explore&nbsp;
+                            <Box component="span" style={{ color: '#FFE500' }}>Plus</Box>
+                        </SubHeading>
+                        <PLusImage src={subURL} alt="sub-logo" />
+                    </Box>
+                </Component>
+                <Search />
+                <CustomButtonWrapper>
                     <CustomButtons />
-                 </CustomButtonWrapper>
+                </CustomButtonWrapper>
             </Toolbar>
         </StyledHeader>
     )
