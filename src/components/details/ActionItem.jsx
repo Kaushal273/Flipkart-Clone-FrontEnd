@@ -1,6 +1,7 @@
 import { Box, Button, styled } from "@mui/material";
 import {ShoppingCart as Cart} from '@mui/icons-material';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
+import { useNavigate } from "react-router-dom";
 
 const LeftContainer = styled(Box)(({theme}) => ({
     minWidth:'40%',
@@ -32,13 +33,19 @@ const StyledButton = styled(Button)(({theme}) => ({
 
 
 const ActionItem = ({ product }) => {
+
+    const navigate = useNavigate();
+    
+    const addItemToCart = () => {
+        navigate('/cart');
+    }
     return(
         <LeftContainer>
             <Box style={{ padding:'15px 20px',
                  border:'1px solid #f0f0f0', }}>
             <Image src={product.detailUrl}  />
             </Box>
-            <StyledButton variant='contained' style={{marginRight: 10, background: '#ff9f00' }}><Cart/>Add to cart</StyledButton>
+            <StyledButton variant='contained' onClick={ () =>addItemToCart()} style={{marginRight: 10, background: '#ff9f00' }}><Cart/>Add to cart</StyledButton>
             <StyledButton variant='contained' style={{ background: '#fb541b'}}><FlashOnIcon />Buy Now</StyledButton>
         </LeftContainer>
     )
