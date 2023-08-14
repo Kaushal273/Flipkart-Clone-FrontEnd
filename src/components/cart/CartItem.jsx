@@ -1,9 +1,17 @@
+import { Box } from "@mui/material";
 
 
 
-const CartItem = () => {
+const CartItem = ({ item }) => {
     return(
-        <div>Hello</div>
+        <Box>
+            <Box>
+                <img src={item.url} alt="product" />
+            </Box>
+            <Box>
+
+            </Box>
+        </Box>
     )
 }
 
