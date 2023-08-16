@@ -1,7 +1,7 @@
 import { Box, Typography, styled } from "@mui/material"
 import { navData } from "../../constants/data";
 
-const Component = styled(Box)(({ theme}) => ({
+const Component = styled(Box)(({ theme }) => ({
     display: 'flex',
     margin: ' 55px 90px 0 130px',
     overflow: 'hidden',
@@ -24,18 +24,20 @@ const Text = styled(Typography)`
 
 
 const NavBar = () => {
-    return(
-        <Component>
-          
+    return (
+        <Box style={{ background: '#fff' }}>
+            <Component>
+
                 {
-                    navData.map( data => (
+                    navData.map(data => (
                         <Container>
                             <img src={data.url} alt="nav" />
                             <Text>{data.text}</Text>
                         </Container>
                     ))
                 }
-        </Component>
+            </Component>
+        </Box>
     )
 }
 
