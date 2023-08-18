@@ -22,6 +22,17 @@ const ButtonWrapper = styled(Box)`
     border-top: 1px solid #f0f0f0;
 `;
 
+const StyledButton = styled(Button)`
+    display: flex;
+    margin-left: auto;
+    background: #fb641b;
+    color: #fff;
+    width:250px;
+    height: 51px;
+    border-radius:2px;
+`;
+
+
 export default function Cart() {
     const { cartItems } = useSelector(state => state.cart);
 
@@ -40,12 +51,12 @@ export default function Cart() {
                                 ))
                             }
                             <ButtonWrapper>
-                                <Button>Place Order</Button>
+                                <StyledButton>Place Order</StyledButton>
                             </ButtonWrapper>
                         </Grid>
 
                         <Grid item lg={3} md={3} sm={12} xs={12}>
-                            <TotalView />
+                            <TotalView cartItems= {cartItems}/>
                         </Grid>
                     </Container>
                     : <div>Empty</div>
